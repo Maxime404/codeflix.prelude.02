@@ -10,7 +10,7 @@ module.exports = function sample(list, n = 1) {
     while (array.length < n) {
         const randomNb = Math.ceil(Math.random() * nbMax);
         for (i in list) {
-            if (list[i] === randomNb) {
+            if (list[i] === randomNb && !array.includes(randomNb)) {
                 array.push(randomNb);
             }
         }

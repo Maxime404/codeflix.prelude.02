@@ -2,12 +2,12 @@ module.exports = function omit(object, ...keys) {
 
     const newObj = {};
     const [callback] = keys;
-    const obj = Object.entries(object);
+    const objAr = Object.entries(object);
 
-    (typeof (callback) === 'function') ? func() : other();
+    (typeof callback === 'function') ? func() : other();
 
     function func() {
-        for (const item of obj) {
+        for (const item of objAr) {
             const [key, value] = item;
             if (!callback(value, key, object)) {
                 newObj[key] = object[key];
@@ -16,7 +16,7 @@ module.exports = function omit(object, ...keys) {
     }
 
     function other() {
-        for (const [objKey, value] of obj) {
+        for (const [objKey, value] of objAr) {
             let bool = true;
             for (const cbKey of keys) {
                 if (objKey === cbKey) { bool = false }
